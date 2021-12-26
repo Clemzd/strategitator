@@ -5,6 +5,7 @@ import {IonicModule} from '@ionic/angular';
 import {LiveRaceComponent} from "./live-race.component";
 import {RelayModule} from "@components/relay/relay.module";
 import {LiveRaceRoutingModule} from "@pages/live-race/live-race-routing.module";
+import {RaceActionSheetModule} from "@components/race-action-sheet/race-action-sheet.module";
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import {LiveRaceRoutingModule} from "@pages/live-race/live-race-routing.module";
     CommonModule,
     IonicModule,
     RelayModule,
-    LiveRaceRoutingModule
+    LiveRaceRoutingModule,
+    RaceActionSheetModule
   ],
   declarations: [LiveRaceComponent],
 })

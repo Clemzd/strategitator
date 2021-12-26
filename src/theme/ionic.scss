@@ -4,6 +4,10 @@ ion-app {
   box-shadow: 0 0 1rem rgba(var(--ion-color-primary-rgb), 0.2);
 }
 
+ion-header {
+  --ion-font-family: var(--ion-font-family-race);
+}
+
 ion-progress-bar {
   height: 1rem;
   --background: var(--ion-color-light);
@@ -38,5 +42,4 @@ ion-button {
 }
 
 ion-content {
-  --ion-font-family: var(--ion-font-family-bis);
 }

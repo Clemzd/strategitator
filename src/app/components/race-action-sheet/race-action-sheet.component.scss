@@ -1,0 +1,19 @@
+:host {
+  div {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--space-m);
+    height: 100px;
+    background: white;
+
+    ion-button {
+      font-size: var(--font-size-l);
+    }
+
+    .message {
+      font-size: var(--font-size-l);
+      font-family: var(--ion-font-family-race);
+    }
+  }
+
+}

@@ -12,9 +12,9 @@
   --ion-color-primary-shade: #033888;
   --ion-color-primary-tint: #1c53a5;
 
-  --ion-color-secondary: #24C765;
+  --ion-color-secondary: linear-gradient(.25turn, #24C765, #0f4b29);
   --ion-color-secondary-rgb: 255, 255, 255;
-  --ion-color-secondary-contrast: #000000;
+  --ion-color-secondary-contrast: #fff;
   --ion-color-secondary-contrast-rgb: 0, 0, 0;
   --ion-color-secondary-shade: #e0e0e0;
   --ion-color-secondary-tint: #ffffff;
@@ -49,9 +49,8 @@
 
   --ion-background-color: #FAF9FE;
 
-  --ion-font-family: 'Gemunu Libre', sans-serif;
-  --ion-font-family-principal: 'Gemunu Libre', sans-serif;
-  --ion-font-family-bis: 'Comfortaa', sans-serif;
+  --ion-font-family: 'Comfortaa', sans-serif;
+  --ion-font-family-race: 'Gemunu Libre', sans-serif;
   --font-size-xs: 1rem;
   --font-size-s: 1.2rem;
   --font-size-xm: 1.4rem;
@@ -82,7 +81,7 @@
   --ion-margin-top-bottom: var(--space-l);
   --ion-padding: var(--space-l);
 
-  --margin-relay-middle: 1.3rem;
+  --margin-relay-middle: 1.6rem;
 
   --ion-safe-area-top: var(--ion-margin);
   --ion-safe-area-bottom: var(--ion-margin);
