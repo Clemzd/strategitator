@@ -1,16 +1,26 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
 
-import { AppComponent } from './app.component';
+import {AppComponent} from './app.component';
+import {IonicModule, IonicRouteStrategy} from '@ionic/angular';
+import {AppRoutingModule} from "./app-routing.module";
+import {RouteReuseStrategy} from "@angular/router";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    IonicModule.forRoot({
+      mode: 'md',
+    }),
+    AppRoutingModule,
   ],
-  providers: [],
+  providers: [
+    {provide: RouteReuseStrategy, useClass: IonicRouteStrategy},
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

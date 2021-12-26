@@ -24,10 +24,16 @@
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "**/*.svg",
+                "input": "node_modules/ionicons/dist/ionicons/svg",
+                "output": "./svg"
+              }
             ],
             "styles": [
-              "src/styles.css"
+              "src/theme/variables.scss",
+              "src/styles.scss"
             ],
             "scripts": []
           },
@@ -91,12 +97,50 @@
             "karmaConfig": "karma.conf.js",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "**/*.svg",
+                "input": "node_modules/ionicons/dist/ionicons/svg",
+                "output": "./svg"
+              }
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss"
             ],
             "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
+        },
+        "ionic-cordova-serve": {
+          "builder": "@ionic/angular-toolkit:cordova-serve",
+          "options": {
+            "cordovaBuildTarget": "strategitator:ionic-cordova-build",
+            "devServerTarget": "strategitator:serve"
+          },
+          "configurations": {
+            "production": {
+              "cordovaBuildTarget": "strategitator:ionic-cordova-build:production",
+              "devServerTarget": "strategitator:serve:production"
+            }
+          }
+        },
+        "ionic-cordova-build": {
+          "builder": "@ionic/angular-toolkit:cordova-build",
+          "options": {
+            "browserTarget": "strategitator:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "strategitator:build:production"
+            }
           }
         }
       }

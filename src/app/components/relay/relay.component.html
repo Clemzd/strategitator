@@ -1,0 +1,24 @@
+<div class="relay">
+  <div class="timeline">
+    <div class="start-time">{{relay.start}}</div>
+    <div class="vertical-line"></div>
+  </div>
+  <div class="card-relay">
+    <div class="relay-duration">
+      <ion-icon name="stopwatch-outline"></ion-icon>
+      <div class="time">{{relay.durationInMinutes}}'</div>
+    </div>
+    <div class="info-pilot">
+      <div class="line">
+        <div>{{ relay.pilot }}</div>
+        <app-badge [text]="relay.number.toString()"></app-badge>
+      </div>
+      <div class="line">
+        <div class="weight">
+          <ion-icon name="barbell"></ion-icon>
+          <div class="kg">2.5KG</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

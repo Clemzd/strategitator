@@ -1,0 +1,42 @@
+ion-app {
+  margin: 0 auto;
+  max-width: 42rem;
+  box-shadow: 0 0 1rem rgba(var(--ion-color-primary-rgb), 0.2);
+}
+
+ion-progress-bar {
+  height: 1rem;
+  --background: var(--ion-color-light);
+  --progress-background: linear-gradient(.25turn, var(--ion-color-primary), var(--ion-color-tertiary));
+  border-radius: var(--default-border-radius);
+  border: var(--default-border-width) solid var(--default-border-color);
+}
+
+ion-progress-bar::part(progress) {
+  border-radius: var(--default-border-radius);
+}
+
+ion-header {
+  padding: 0 var(--ion-padding);
+  background: var(--ion-color-background-app);
+}
+
+ion-content {
+  --padding-start: var(--ion-margin);
+  --padding-end: var(--ion-margin);
+  --padding-top: var(--ion-margin-top-bottom);
+  --padding-bottom: var(--ion-margin-top-bottom);
+}
+
+ion-list {
+  --padding-start: 0;
+  --padding-end: 0;
+}
+
+ion-button {
+  text-transform: initial;
+}
+
+ion-content {
+  --ion-font-family: var(--ion-font-family-bis);
+}

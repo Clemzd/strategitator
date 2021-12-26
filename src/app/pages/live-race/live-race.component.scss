@@ -1,0 +1,47 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+
+  .time {
+    display: flex;
+    align-items: baseline;
+    font-weight: 800;
+
+    .hours-minutes {
+      color: var(--ion-color-primary);
+      font-size: var(--font-size-xxxl);
+    }
+
+    .seconds {
+      color: var(--ion-color-medium);
+      font-size: var(--font-size-xl);
+    }
+  }
+}
+
+.relays-list {
+  display: flex;
+  flex-direction: column;
+  padding-top: calc(var(--margin-relay-middle));
+
+  .item {
+    margin-bottom: var(--space-xxs);
+  }
+}
+
+
+.track-info {
+  color: var(--ion-color-primary);
+  font-family: var(--ion-font-family-principal);
+
+  h1 {
+    margin-bottom: 0;
+  }
+
+  h1, h3 {
+    margin-top: 0;
+  }
+
+  margin-bottom: var(--space-l);
+}
