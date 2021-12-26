@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkstrategitator=self.webpackChunkstrategitator||[]).push([[9797],{9797:(a,E,_)=>{_.r(E),_.d(E,{ion_modal:()=>s.M});var s=_(9825);_(7629),_(6897),_(2429),_(8751),_(6132),_(224)}}]);
