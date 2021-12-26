@@ -34,18 +34,17 @@ export class RaceActionSheetComponent implements OnInit {
 
   private onEnd(detail: GestureDetail) {
     this.renderer.setStyle(this.actionSheet.nativeElement, "transition", "0.2s ease-out");
-    console.log(detail);
     if (detail.deltaY < 50) {
       this.renderer.setStyle(
         this.actionSheet.nativeElement,
         "height",
-        `230px`
+        `var(--expanded-height-action-sheet)`
       );
     } else {
       this.renderer.setStyle(
         this.actionSheet.nativeElement,
         "height",
-        `100px`
+        `var(--default-height-action-sheet)`
       );
     }
   }

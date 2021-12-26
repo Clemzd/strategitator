@@ -1,9 +1,12 @@
 :host {
+  --default-height-action-sheet: 8.5rem;
+  --expanded-height-action-sheet: 21.5rem;
+
   div {
     display: flex;
     justify-content: space-between;
     padding: var(--space-m);
-    height: 100px;
+    height: var(--default-height-action-sheet);
     background: white;
 
     ion-button {
@@ -13,6 +16,8 @@
     .message {
       font-size: var(--font-size-l);
       font-family: var(--ion-font-family-race);
+      font-weight: 600;
+      color: var(--ion-color-primary);
     }
   }
 

@@ -1,47 +1,63 @@
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
+:host {
 
-  .time {
+  ion-toolbar {
+    --padding-start: var(--ion-padding);
+    --padding-end: var(--ion-padding);
+  }
+
+  .container-progress-bar {
+    padding: 0 var(--ion-padding);
+  }
+
+  .header {
     display: flex;
+    justify-content: space-between;
     align-items: baseline;
-    font-weight: 800;
 
-    .hours-minutes {
-      color: var(--ion-color-primary);
-      font-size: var(--font-size-xxxl);
+    ion-progress-bar {
+      margin: 0 var(--ion-padding);
     }
 
-    .seconds {
-      color: var(--ion-color-medium);
-      font-size: var(--font-size-xl);
+    .time {
+      display: flex;
+      align-items: baseline;
+      font-weight: 800;
+
+      .hours-minutes {
+        color: var(--ion-color-primary);
+        font-size: var(--font-size-xxxl);
+      }
+
+      .seconds {
+        color: var(--ion-color-medium);
+        font-size: var(--font-size-xl);
+      }
     }
   }
-}
 
-.relays-list {
-  display: flex;
-  flex-direction: column;
-  padding-top: calc(var(--margin-relay-middle));
+  .relays-list {
+    display: flex;
+    flex-direction: column;
+    padding-top: calc(var(--margin-relay-middle));
 
-  .item {
-    margin-bottom: var(--space-xxs);
-  }
-}
-
-
-.track-info {
-  color: var(--ion-color-primary);
-  font-family: var(--ion-font-family-race);
-
-  h1 {
-    margin-bottom: 0;
+    .item {
+      margin-bottom: var(--space-xxs);
+    }
   }
 
-  h1, h3 {
-    margin-top: 0;
-  }
 
-  margin-bottom: var(--space-l);
+  .track-info {
+    color: var(--ion-color-primary);
+    font-family: var(--ion-font-family-race);
+
+    h1 {
+      margin-bottom: 0;
+    }
+
+    h1, h3 {
+      margin-top: 0;
+    }
+
+    margin-bottom: var(--space-l);
+  }
 }
