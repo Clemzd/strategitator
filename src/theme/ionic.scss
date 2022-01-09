@@ -6,22 +6,20 @@ ion-app {
 
 ion-header {
   --ion-font-family: var(--ion-font-family-race);
+  padding-bottom: var(--space-m);
+  background: var(--ion-color-background-app);
 }
 
 ion-progress-bar {
   height: 1rem;
   --background: var(--ion-color-light);
-  --progress-background: linear-gradient(.25turn, var(--ion-color-primary), var(--ion-color-tertiary));
+  --progress-background: linear-gradient(0.25turn, var(--ion-color-primary), var(--ion-color-tertiary));
   border-radius: var(--default-border-radius);
   border: var(--default-border-width) solid var(--default-border-color);
 }
 
 ion-progress-bar::part(progress) {
   border-radius: var(--default-border-radius);
-}
-
-ion-header {
-  background: var(--ion-color-background-app);
 }
 
 ion-content {
@@ -31,6 +29,10 @@ ion-content {
   --padding-bottom: var(--ion-margin-top-bottom);
 }
 
+ion-footer {
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+}
+
 ion-list {
   --padding-start: 0;
   --padding-end: 0;
@@ -38,7 +40,32 @@ ion-list {
 
 ion-button {
   text-transform: initial;
-}
 
-ion-content {
+  --border-width: 1px;
+  --padding-start: var(--space-s);
+  --padding-end: var(--space-s);
+  --box-shadow: none;
+  margin: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+
+  &:not(.button-round) {
+    --border-radius: 1rem;
+    border-radius: 1rem;
+  }
+
+  &.square {
+    width: var(--space-xxl);
+  }
+
+  &[fill="outline"] {
+    --color: var(--ion-color-primary) !important;
+    --background: var(--ion-color-primary-contrast);
+    // --border-width à 0 pour masquer la bordure du composant ionic,
+    // car elle prend la couleur --color du bouton.
+    // Impossible de lui assigner une couleur différente proprement.
+    --border-width: 0;
+    // Et ajout d'une bordure sur le bouton avec la bonne couleur :
+    border: 1px solid var(--ion-color-light-blue);
+  }
 }

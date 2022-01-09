@@ -33,6 +33,16 @@
         font-size: var(--font-size-xl);
       }
     }
+
+    ion-button {
+      height: var(--space-xl);
+    }
+
+    .text-start-race {
+      font-size: var(--font-size-l);
+      font-weight: 500;
+      letter-spacing: 0;
+    }
   }
 
   .relays-list {

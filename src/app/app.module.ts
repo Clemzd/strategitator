@@ -7,6 +7,7 @@ import {AppRoutingModule} from "./app-routing.module";
 import {RouteReuseStrategy} from "@angular/router";
 import {ServiceWorkerModule} from '@angular/service-worker';
 import {environment} from '../environments/environment';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import {environment} from '../environments/environment';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     IonicModule.forRoot({
       mode: 'md',
     }),

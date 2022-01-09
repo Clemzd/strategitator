@@ -8,8 +8,10 @@ import {GestureController, GestureDetail} from "@ionic/angular";
 })
 export class RaceActionSheetComponent implements OnInit {
 
-  @ViewChild('actionSheet', {static: true})
-  private actionSheet!: ElementRef<HTMLDivElement>;
+  @ViewChild('barSheet', {static: true})
+  private barSheet!: ElementRef<HTMLDivElement>;
+
+  private startingExpandingHeight = 0;
 
   constructor(private gestureCtrl: GestureController, private renderer: Renderer2) {
   }
@@ -17,12 +19,17 @@ export class RaceActionSheetComponent implements OnInit {
   ngOnInit(): void {
     const gesture = this.gestureCtrl.create({
       gestureName: 'resize-race-action-sheet',
-      el: this.actionSheet.nativeElement,
+      el: this.barSheet.nativeElement,
       gesturePriority: 100,
       passive: false,
       direction: 'y',
       onStart: () => {
-        this.renderer.setStyle(this.actionSheet.nativeElement, "transition", "none");
+        this.renderer.setStyle(this.barSheet.nativeElement, "transition", "none");
+        this.startingExpandingHeight = this.barSheet.nativeElement.clientHeight;
+      },
+      onMove: (detail) => {
+        const newHeight = this.startingExpandingHeight - detail.deltaY;
+        this.renderer.setStyle(this.barSheet.nativeElement, "height", `${newHeight}px`);
       },
       onEnd: (detail) => {
         this.onEnd(detail);
@@ -33,16 +40,17 @@ export class RaceActionSheetComponent implements OnInit {
   }
 
   private onEnd(detail: GestureDetail) {
-    this.renderer.setStyle(this.actionSheet.nativeElement, "transition", "0.2s ease-out");
+    this.startingExpandingHeight = 0;
+    this.renderer.setStyle(this.barSheet.nativeElement, "transition", "0.3s ease-out");
     if (detail.deltaY < 50) {
       this.renderer.setStyle(
-        this.actionSheet.nativeElement,
+        this.barSheet.nativeElement,
         "height",
         `var(--expanded-height-action-sheet)`
       );
     } else {
       this.renderer.setStyle(
-        this.actionSheet.nativeElement,
+        this.barSheet.nativeElement,
         "height",
         `var(--default-height-action-sheet)`
       );

@@ -3,12 +3,12 @@ import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
 
 const routes: Routes = [
   {
-    path: '**',
-    redirectTo: 'live-race',
-  },
-  {
     path: 'live-race',
     loadChildren: () => import('@pages/live-race/live-race.module').then(m => m.LiveRaceModule),
+  },
+  {
+    path: 'home',
+    loadChildren: () => import('@pages/home/home.module').then(m => m.HomeModule),
   },
 ];
 

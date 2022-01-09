@@ -2,23 +2,29 @@
   --default-height-action-sheet: 8.5rem;
   --expanded-height-action-sheet: 21.5rem;
 
-  div {
+  .bar {
     display: flex;
-    justify-content: space-between;
-    padding: var(--space-m);
+    align-content: flex-start;
+    flex-direction: column;
     height: var(--default-height-action-sheet);
     background: white;
 
-    ion-button {
-      font-size: var(--font-size-l);
-    }
+    .action-sheet {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: var(--space-m);
 
-    .message {
-      font-size: var(--font-size-l);
-      font-family: var(--ion-font-family-race);
-      font-weight: 600;
-      color: var(--ion-color-primary);
+      ion-button {
+        font-size: var(--font-size-l);
+      }
+
+      .message {
+        font-size: var(--font-size-l);
+        font-family: var(--ion-font-family-race);
+        font-weight: 600;
+        color: var(--ion-color-primary);
+      }
     }
   }
-
 }
