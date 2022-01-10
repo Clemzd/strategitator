@@ -28,8 +28,10 @@ export class RaceActionSheetComponent implements OnInit {
         this.startingExpandingHeight = this.barSheet.nativeElement.clientHeight;
       },
       onMove: (detail) => {
-        const newHeight = this.startingExpandingHeight - detail.deltaY;
-        this.renderer.setStyle(this.barSheet.nativeElement, "height", `${newHeight}px`);
+        /*const newHeight = this.startingExpandingHeight - detail.deltaY;
+        if (detail.deltaY < 20) {
+          this.renderer.setStyle(this.barSheet.nativeElement, "height", `${newHeight}px`);
+        }*/
       },
       onEnd: (detail) => {
         this.onEnd(detail);
@@ -41,7 +43,7 @@ export class RaceActionSheetComponent implements OnInit {
 
   private onEnd(detail: GestureDetail) {
     this.startingExpandingHeight = 0;
-    this.renderer.setStyle(this.barSheet.nativeElement, "transition", "0.3s ease-out");
+    this.renderer.setStyle(this.barSheet.nativeElement, "transition", "0.1s ease-out");
     if (detail.deltaY < 50) {
       this.renderer.setStyle(
         this.barSheet.nativeElement,
