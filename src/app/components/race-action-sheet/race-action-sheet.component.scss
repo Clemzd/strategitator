@@ -2,18 +2,17 @@
   --default-height-action-sheet: 8.5rem;
   --expanded-height-action-sheet: 21.5rem;
 
-  .bar {
+  .toolbar-sheet {
     display: flex;
     align-content: flex-start;
     flex-direction: column;
     height: var(--default-height-action-sheet);
-    background: white;
 
     .action-sheet {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: var(--space-m);
+      padding: var(--space-s);
 
       ion-button {
         font-size: var(--font-size-l);
@@ -24,6 +23,20 @@
         font-family: var(--ion-font-family-race);
         font-weight: 600;
         color: var(--ion-color-primary);
+      }
+    }
+
+    .button-bar {
+      display: flex;
+      height: 100%;
+
+      .vertical-bar {
+        width: 1px;
+        height: 100%;
+        background: var(--ion-color-medium-light);
+        border-radius: 1rem;
+        margin-left: var(--space-xs);
+        margin-right: var(--space-xs);
       }
     }
   }

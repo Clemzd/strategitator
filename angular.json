@@ -30,6 +30,11 @@
                 "input": "node_modules/ionicons/dist/ionicons/svg",
                 "output": "./svg"
               },
+              {
+                "glob": "**/custom-*.svg",
+                "input": "src/assets/icons_custom",
+                "output": "./svg"
+              },
               "src/manifest.webmanifest"
             ],
             "styles": [
@@ -104,6 +109,11 @@
               {
                 "glob": "**/*.svg",
                 "input": "node_modules/ionicons/dist/ionicons/svg",
+                "output": "./svg"
+              },
+              {
+                "glob": "**/custom-*.svg",
+                "input": "src/assets/icons_custom",
                 "output": "./svg"
               },
               "src/manifest.webmanifest"

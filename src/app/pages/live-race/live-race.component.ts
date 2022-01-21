@@ -62,10 +62,46 @@ export class LiveRaceComponent implements OnInit {
     number: 6,
     durationInMinutes: 10,
     fuel: false
+  });
+
+  relay7 = new Relay({
+    pilot: 'Samuel',
+    start: '00:40',
+    end: '00:30',
+    number: 7,
+    durationInMinutes: 10,
+    fuel: false
+  })
+
+  relay8 = new Relay({
+    pilot: 'Samuel',
+    start: '00:30',
+    end: '00:20',
+    number: 8,
+    durationInMinutes: 10,
+    fuel: false
+  })
+
+  relay9 = new Relay({
+    pilot: 'Samuel',
+    start: '00:30',
+    end: '00:20',
+    number: 9,
+    durationInMinutes: 10,
+    fuel: false
+  })
+
+  relay10 = new Relay({
+    pilot: 'Samuel',
+    start: '00:20',
+    end: '00:00',
+    number: 10,
+    durationInMinutes: 20,
+    fuel: false
   })
 
 
-  relays = [this.relay1, this.relay2, this.relay3, this.relay4, this.relay5, this.relay6];
+  relays = [this.relay1, this.relay2, this.relay3, this.relay4, this.relay5, this.relay6, this.relay7, this.relay8, this.relay9, this.relay10];
 
   race = new Race({
     location: 'St Michel Chef Chef',
