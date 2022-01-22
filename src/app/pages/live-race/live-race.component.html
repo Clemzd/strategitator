@@ -1,24 +1,10 @@
 <ion-header class="ion-no-border">
-  <ion-toolbar>
-    <div class="header">
-      <div class="time">
-        <div class="hours-minutes">02:00</div>
-        <div class="seconds">:00</div>
-      </div>
-      <ion-button color="primary-tertiary-gradient" shape="round" size="small">
-        <ion-icon name="play" slot="start"></ion-icon>
-        <span class="text-start-race">Lancer la course</span>
-      </ion-button>
-    </div>
-  </ion-toolbar>
-  <div class="container-progress-bar">
-    <ion-progress-bar value="0.7"></ion-progress-bar>
-  </div>
+  <app-race-header [race]="race"></app-race-header>
 </ion-header>
 <ion-content>
   <div class="track-info">
     <h1>{{race.location}}</h1>
-    <h3>{{race.lengthInHours}}H - {{ race.date | date:'mediumDate' }}</h3>
+    <h3>{{race.lengthInHours}}H - {{ race.plannedDate | date:'mediumDate' }}</h3>
   </div>
   <div class="relays-list">
     <div *ngFor="let relay of relays" class="item">
@@ -26,6 +12,6 @@
     </div>
   </div>
 </ion-content>
-<ion-footer mode="ios">
-  <app-race-action-sheet></app-race-action-sheet>
+<ion-footer>
+  <app-race-action-sheet [race]="race"></app-race-action-sheet>
 </ion-footer>

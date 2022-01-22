@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Relay} from "@models/relay.model";
+import {StateRelay} from "@models/state-relay.enum";
 
 @Component({
   selector: 'app-relay',
@@ -14,6 +15,10 @@ export class RelayComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  get StateRelayEnum() {
+    return StateRelay;
   }
 
 }

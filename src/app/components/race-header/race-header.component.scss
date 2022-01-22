@@ -1,0 +1,47 @@
+ion-toolbar {
+  --padding-start: var(--ion-padding);
+  --padding-end: var(--ion-padding);
+}
+
+.container-progress-bar {
+  margin: 0 var(--ion-padding);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  ion-progress-bar {
+    margin: 0 var(--ion-padding);
+  }
+
+  .time {
+    display: flex;
+    align-items: baseline;
+    font-weight: 800;
+    line-height: 0.7;
+
+    .hours-minutes {
+      color: var(--ion-color-primary);
+      font-size: var(--font-size-xxxl);
+    }
+
+    .seconds {
+      color: var(--ion-color-medium);
+      font-size: var(--font-size-xl);
+    }
+
+  }
+
+  ion-button {
+    height: var(--space-xl);
+  }
+
+  .text-start-race {
+    font-size: var(--font-size-l);
+    font-weight: 600;
+    letter-spacing: 0;
+  }
+
+}

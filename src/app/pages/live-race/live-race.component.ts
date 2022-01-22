@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Relay} from "@models/relay.model";
 import {Race} from "@models/race.model";
+import {StateRelay} from "@models/state-relay.enum";
 
 @Component({
   selector: 'app-live-race',
@@ -16,7 +17,8 @@ export class LiveRaceComponent implements OnInit {
     end: '01:55',
     number: 1,
     durationInMinutes: 5,
-    fuel: false
+    fuel: false,
+    state: StateRelay.NOT_PASSED
   });
 
   relay2 = new Relay({
@@ -25,7 +27,8 @@ export class LiveRaceComponent implements OnInit {
     end: '01:40',
     number: 2,
     durationInMinutes: 15,
-    fuel: false
+    fuel: false,
+    state: StateRelay.NOT_PASSED
   });
 
   relay3 = new Relay({
@@ -34,7 +37,8 @@ export class LiveRaceComponent implements OnInit {
     end: '01:20',
     number: 3,
     durationInMinutes: 20,
-    fuel: false
+    fuel: false,
+    state: StateRelay.NOT_PASSED
   });
 
   relay4 = new Relay({
@@ -43,7 +47,8 @@ export class LiveRaceComponent implements OnInit {
     end: '01:00',
     number: 4,
     durationInMinutes: 20,
-    fuel: false
+    fuel: false,
+    state: StateRelay.NOT_PASSED
   });
 
   relay5 = new Relay({
@@ -52,7 +57,8 @@ export class LiveRaceComponent implements OnInit {
     end: '00:50',
     number: 5,
     durationInMinutes: 10,
-    fuel: false
+    fuel: false,
+    state: StateRelay.NOT_PASSED
   });
 
   relay6 = new Relay({
@@ -61,7 +67,8 @@ export class LiveRaceComponent implements OnInit {
     end: '00:40',
     number: 6,
     durationInMinutes: 10,
-    fuel: false
+    fuel: false,
+    state: StateRelay.NOT_PASSED
   });
 
   relay7 = new Relay({
@@ -70,7 +77,8 @@ export class LiveRaceComponent implements OnInit {
     end: '00:30',
     number: 7,
     durationInMinutes: 10,
-    fuel: false
+    fuel: false,
+    state: StateRelay.NOT_PASSED
   })
 
   relay8 = new Relay({
@@ -79,7 +87,8 @@ export class LiveRaceComponent implements OnInit {
     end: '00:20',
     number: 8,
     durationInMinutes: 10,
-    fuel: false
+    fuel: false,
+    state: StateRelay.NOT_PASSED
   })
 
   relay9 = new Relay({
@@ -88,7 +97,8 @@ export class LiveRaceComponent implements OnInit {
     end: '00:20',
     number: 9,
     durationInMinutes: 10,
-    fuel: false
+    fuel: false,
+    state: StateRelay.NOT_PASSED
   })
 
   relay10 = new Relay({
@@ -97,7 +107,8 @@ export class LiveRaceComponent implements OnInit {
     end: '00:00',
     number: 10,
     durationInMinutes: 20,
-    fuel: false
+    fuel: false,
+    state: StateRelay.NOT_PASSED
   })
 
 
@@ -106,7 +117,7 @@ export class LiveRaceComponent implements OnInit {
   race = new Race({
     location: 'St Michel Chef Chef',
     lengthInHours: 2,
-    date: new Date(),
+    plannedDate: new Date(),
     relays: this.relays
   });
 

@@ -1,5 +1,7 @@
-import {Component, ElementRef, OnInit, Renderer2, ViewChild} from '@angular/core';
-import {GestureController, GestureDetail} from "@ionic/angular";
+import {Component, ElementRef, Input, OnInit, Renderer2, ViewChild} from '@angular/core';
+import {ActionSheetController, AlertController, GestureController, GestureDetail} from "@ionic/angular";
+import {RaceService} from "@app/service/race.service";
+import {Race} from "@models/race.model";
 
 @Component({
   selector: 'app-race-action-sheet',
@@ -8,12 +10,16 @@ import {GestureController, GestureDetail} from "@ionic/angular";
 })
 export class RaceActionSheetComponent implements OnInit {
 
+  @Input()
+  public race!: Race;
+
   @ViewChild('barSheet', {static: true})
   private barSheet!: ElementRef<HTMLDivElement>;
 
   private startingExpandingHeight = 0;
 
-  constructor(private gestureCtrl: GestureController, private renderer: Renderer2) {
+
+  constructor(private gestureCtrl: GestureController, private renderer: Renderer2, private alertController: AlertController, private actionSheetController: ActionSheetController, private raceService: RaceService) {
   }
 
   ngOnInit(): void {
@@ -28,10 +34,10 @@ export class RaceActionSheetComponent implements OnInit {
         this.startingExpandingHeight = this.barSheet.nativeElement.clientHeight;
       },
       onMove: (detail) => {
-        /*const newHeight = this.startingExpandingHeight - detail.deltaY;
+        const newHeight = this.startingExpandingHeight - detail.deltaY;
         if (detail.deltaY < 20) {
           this.renderer.setStyle(this.barSheet.nativeElement, "height", `${newHeight}px`);
-        }*/
+        }
       },
       onEnd: (detail) => {
         this.onEnd(detail);
@@ -57,5 +63,73 @@ export class RaceActionSheetComponent implements OnInit {
         `var(--default-height-action-sheet)`
       );
     }
+  }
+
+  async showSettings() {
+    const actionSheet = await this.actionSheetController.create({
+      header: 'Réglages de la course',
+      mode: 'ios',
+      cssClass: 'my-custom-class',
+      buttons: [{
+        text: 'Changer les relais',
+        icon: 'share',
+        data: 10,
+        handler: () => {
+          console.log('Share clicked');
+        }
+      }, {
+        text: 'Play (open modal)',
+        icon: 'caret-forward-circle',
+        data: 'Data value',
+        handler: () => {
+          console.log('Play clicked');
+        }
+      }, {
+        text: 'Favorite',
+        icon: 'heart',
+        handler: () => {
+          console.log('Favorite clicked');
+        }
+      }, {
+        text: 'Cancel',
+        icon: 'close',
+        role: 'cancel',
+        handler: () => {
+          console.log('Cancel clicked');
+        }
+      }]
+    });
+    await actionSheet.present();
+
+    const {role, data} = await actionSheet.onDidDismiss();
+    console.log('onDidDismiss resolved with role and data', role, data);
+  }
+
+  async changeRelay() {
+    const alert = await this.alertController.create({
+      mode: "ios",
+      cssClass: 'my-custom-class',
+      header: 'Confirmer',
+      message: 'Relais terminé',
+      buttons: [
+        {
+          text: 'Annuler',
+          role: 'cancel',
+          cssClass: 'secondary',
+          id: 'cancel-button',
+          handler: () => {
+            console.log('Confirm Cancel: blah');
+          }
+        }, {
+          text: 'Ok',
+          id: 'confirm-button',
+          handler: () => {
+            this.raceService.changeRelay(this.race);
+          }
+        }
+      ]
+    });
+
+    await alert.present();
   }
 }

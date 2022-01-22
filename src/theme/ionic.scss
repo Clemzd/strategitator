@@ -12,8 +12,10 @@ ion-progress-bar {
   border: var(--default-border-width) solid var(--default-border-color);
 }
 
-ion-progress-bar::part(progress) {
-  border-radius: var(--default-border-radius);
+ion-progress-bar {
+  &::part(progress), &::part(track) {
+    border-radius: var(--default-border-radius);
+  }
 }
 
 ion-content {
@@ -27,6 +29,11 @@ ion-footer {
   box-shadow: rgba(17, 17, 26, 0.1) 0 4px 16px, rgba(17, 17, 26, 0.1) 0 8px 24px, rgba(17, 17, 26, 0.1) 0 16px 56px;
   border-top-right-radius: 1.5rem;
   border-top-left-radius: 1.5rem;
+}
+
+.footer-md::before {
+  // Remove the shadow line in the footer for md.
+  opacity: 0;
 }
 
 ion-list {
@@ -61,11 +68,11 @@ ion-button {
   }
 
   &[size="square"] {
-    height: 4rem;
-    width: 4rem;
+    height: 5rem;
+    width: 5rem;
 
     & > ion-icon {
-      width: 2.8rem;
+      width: 3em;
       // absolute so the icon size is not control by the button
       position: absolute;
     }

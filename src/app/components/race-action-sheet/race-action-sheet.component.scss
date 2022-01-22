@@ -8,11 +8,22 @@
     flex-direction: column;
     height: var(--default-height-action-sheet);
 
+    .menu-handle {
+      background: var(--ion-color-medium);
+      border-radius: 8px;
+      width: 36px;
+      height: 5px;
+      margin: var(--space-xxs);
+      margin-bottom: var(--space-xxxs);
+      margin-right: auto;
+      margin-left: auto;
+    }
+
     .action-sheet {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: var(--space-s);
+      padding: 0 var(--space-s) var(--space-s) var(--space-s);
 
       ion-button {
         font-size: var(--font-size-l);
