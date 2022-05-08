@@ -1,12 +1,15 @@
 :host {
 
-  .relays-list {
+  .race-wrapper {
+    padding-top: var(--margin-relay-middle);
     display: flex;
-    flex-direction: column;
-    padding-top: calc(var(--margin-relay-middle));
 
     .item {
-      margin-bottom: var(--space-xxs);
+      margin-bottom: var(--margin-bottom-relays);
+    }
+
+    .relays {
+      width: 100%;
     }
   }
 

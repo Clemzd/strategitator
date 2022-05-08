@@ -72,21 +72,19 @@ export class RaceActionSheetComponent implements OnInit {
       cssClass: 'my-custom-class',
       buttons: [{
         text: 'Changer les relais',
-        icon: 'share',
-        data: 10,
+        icon: 'create-outline',
         handler: () => {
-          console.log('Share clicked');
+          this.raceService.askEdit(this.race);
         }
       }, {
-        text: 'Play (open modal)',
-        icon: 'caret-forward-circle',
-        data: 'Data value',
+        text: 'Mettre en pause',
+        icon: 'pause-circle-outline',
         handler: () => {
           console.log('Play clicked');
         }
       }, {
-        text: 'Favorite',
-        icon: 'heart',
+        text: 'Ajuster le Chrono',
+        icon: 'timer-outline',
         handler: () => {
           console.log('Favorite clicked');
         }

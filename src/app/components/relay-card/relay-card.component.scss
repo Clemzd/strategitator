@@ -1,0 +1,110 @@
+@keyframes blinker {
+  from {
+    opacity: 1.0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 1.0;
+  }
+}
+
+:host {
+  width: 100%;
+
+  .card-relay {
+    display: flex;
+    flex: 1;
+    color: var(--ion-color-primary);
+    width: 100%;
+    margin-left: var(--space-xxs);
+    height: var(--height-relay-card);
+
+    .relay-duration {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: var(--ion-color-medium);
+      padding: var(--space-xm) var(--space-xs);
+      border-radius: 21px 0 0 21px;
+
+      color: var(--ion-color-light);
+      width: 3.3rem;
+      font-size: var(--font-size-xm);
+      text-align: center;
+      font-weight: 600;
+
+      &.active {
+        background: var(--ion-color-secondary-gradient);
+      }
+
+      &.passed {
+        background: var(--ion-color-primary);
+      }
+
+      ion-icon {
+        font-size: 1.8rem;
+        --ionicon-stroke-width: 48px;
+      }
+
+      .time {
+        margin-top: 0.4rem;
+      }
+    }
+
+    .info-pilot {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      flex: 1;
+      font-size: var(--font-size-sl);
+      font-weight: 600;
+      background: var(--ion-color-light);
+      border-radius: 10px;
+      padding: var(--space-m);
+
+      .line {
+        display: flex;
+        justify-content: space-between;
+
+        &:not(:first-child) {
+          margin-top: 1.1rem;
+        }
+
+        .badge {
+          &.active {
+            background: var(--ion-color-secondary);
+          }
+
+          &.passed {
+            background: var(--ion-color-primary);
+          }
+        }
+
+        .weight {
+          display: flex;
+          color: var(--ion-color-tertiary);
+          align-items: center;
+          font-size: var(--font-size-s);
+          font-weight: 600;
+          border: 0.2rem solid var(--ion-color-tertiary);
+          border-radius: 10px;
+          padding: var(--space-xxxxs) var(--space-xs);
+
+          ion-icon {
+            margin-right: var(--space-xxxs);
+          }
+        }
+      }
+    }
+  }
+
+  ion-select {
+    --padding-bottom: 0;
+    --padding-end: 0;
+    --padding-start: 0;
+    --padding-top: 0;
+  }
+}

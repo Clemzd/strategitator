@@ -1,0 +1,31 @@
+<div class="card-relay">
+  <div (click)="askChangeDuration()" [class.active]="relay.state === StateRelayEnum.IN_PROGRESS"
+       [class.passed]="relay.state === StateRelayEnum.PAST"
+       class="relay-duration">
+    <ion-icon *ngIf="!relay.editable" name="stopwatch-outline"></ion-icon>
+    <ion-icon *ngIf="relay.editable" name="create-outline" size="large" slot="icon-only"></ion-icon>
+    <div class="time">{{relay.durationInMinutes}}'</div>
+  </div>
+  <div class="info-pilot">
+    <div class="line">
+      <div *ngIf="!relay.editable">{{ relay.pilotName }}</div>
+      <ion-select *ngIf="relay.editable" [interfaceOptions]="customAlertOptions" [value]="relay.pilotId"
+                  placeholder="Pilote">
+        <ng-container *ngFor="let pilot of pilots">
+          <ion-select-option [value]="pilot.id">{{pilot.name}}</ion-select-option>
+        </ng-container>
+      </ion-select>
+      <app-badge [class.active]="relay.state === StateRelayEnum.IN_PROGRESS"
+                 [class.passed]="relay.state === StateRelayEnum.PAST"
+                 [text]="relay.number.toString()"
+                 class="badge"></app-badge>
+    </div>
+    <div class="line">
+      <div class="weight">
+        <ion-icon name="barbell"></ion-icon>
+        <div class="kg">2.5KG</div>
+      </div>
+      <ion-reorder *ngIf="relay.editable" mode="ios" slot="end"></ion-reorder>
+    </div>
+  </div>
+</div>

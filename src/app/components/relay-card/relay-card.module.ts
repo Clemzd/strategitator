@@ -1,16 +1,16 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {RelayComponent} from './relay.component';
+import {RelayCardComponent} from './relay-card.component';
 import {IonicModule} from "@ionic/angular";
 import {BadgeModule} from "../badge/badge.module";
 
 
 @NgModule({
   declarations: [
-    RelayComponent
+    RelayCardComponent
   ],
   exports: [
-    RelayComponent
+    RelayCardComponent
   ],
   imports: [
     CommonModule,
@@ -18,5 +18,5 @@ import {BadgeModule} from "../badge/badge.module";
     BadgeModule
   ]
 })
-export class RelayModule {
+export class RelayCardModule {
 }

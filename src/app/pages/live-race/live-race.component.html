@@ -6,9 +6,18 @@
     <h1>{{race.location}}</h1>
     <h3>{{race.lengthInHours}}H - {{ race.plannedDate | date:'mediumDate' }}</h3>
   </div>
-  <div class="relays-list">
-    <div *ngFor="let relay of relays" class="item">
-      <app-relay [relay]="relay"></app-relay>
+  <div class="race-wrapper">
+    <!-- Timeline -->
+    <app-race-timeline [race]="race"></app-race-timeline>
+
+
+    <!-- Relays -->
+    <div class="relays">
+      <ion-reorder-group (ionItemReorder)="reorderItems($event)" disabled="false">
+        <div *ngFor="let relay of relays" class="item">
+          <app-card-relay [pilots]="pilots" [relay]="relay"></app-card-relay>
+        </div>
+      </ion-reorder-group>
     </div>
   </div>
 </ion-content>

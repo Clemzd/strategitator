@@ -16,3 +16,7 @@
 html {
   font-size: 62.5%;
 }
+
+body {
+  font-size: var(--default-font-size, 1.6rem); // Si première valeur non définie, fallback sur 1.6em (16px).
+}

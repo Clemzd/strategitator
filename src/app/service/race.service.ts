@@ -47,7 +47,14 @@ export class RaceService {
     race.relays[race.currentIndexRelay].state = StateRelay.PAST;
     race.currentIndexRelay += 1;
     race.relays[race.currentIndexRelay].state = StateRelay.IN_PROGRESS;
+  }
 
+  public askEdit(race: Race): void {
+    race.relays.forEach(r => r.editable = true);
+  }
+
+  public askView(race: Race): void {
+    race.relays.forEach(r => r.editable = false);
   }
 
   public goFaster(): void {

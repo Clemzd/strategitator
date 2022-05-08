@@ -1,0 +1,8 @@
+<div *ngFor="let relay of race.relays">
+  <div class="timeline">
+    <div class="start-time">{{relay.start}}</div>
+    <div class="vertical-line">
+      <div *ngIf="relay.state === StateRelayEnum.IN_PROGRESS" class="progress-point"></div>
+    </div>
+  </div>
+</div>

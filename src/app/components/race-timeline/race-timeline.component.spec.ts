@@ -1,20 +1,20 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import {RelayComponent} from './relay.component';
+import {RaceTimelineComponent} from './race-timeline.component';
 
-describe('RelayComponent', () => {
-  let component: RelayComponent;
-  let fixture: ComponentFixture<RelayComponent>;
+describe('RaceTimelineComponent', () => {
+  let component: RaceTimelineComponent;
+  let fixture: ComponentFixture<RaceTimelineComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [RelayComponent]
+      declarations: [RaceTimelineComponent]
     })
       .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RelayComponent);
+    fixture = TestBed.createComponent(RaceTimelineComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
