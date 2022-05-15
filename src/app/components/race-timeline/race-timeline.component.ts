@@ -1,6 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, HostBinding, Input, OnInit} from '@angular/core';
 import {Race} from "@models/race.model";
 import {StateRelay} from "@models/state-relay.enum";
+import {GestionnaireEvenementService} from "@app/service/gestionnaire-evenement.service";
+import {RaceManagerService} from "@app/service/race-manager.service";
 
 @Component({
   selector: 'app-race-timeline',
@@ -11,7 +13,11 @@ export class RaceTimelineComponent implements OnInit {
 
   @Input() race!: Race;
 
-  constructor() {
+  @HostBinding("style.--passed-time-relay-in-percent")
+  @Input()
+  passedTImeRelayInPercent!: string;
+
+  constructor(private readonly gestionnaireEvenementService: GestionnaireEvenementService, private readonly raceManagerService: RaceManagerService) {
   }
 
   get StateRelayEnum() {
@@ -19,5 +25,13 @@ export class RaceTimelineComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+    this.gestionnaireEvenementService.subscribe('raceTick', () => {
+      this.updatePositionProgressPoint();
+    });
+  }
+
+  private updatePositionProgressPoint(): void {
+    this.passedTImeRelayInPercent = `${this.raceManagerService.passedTimeRelayInPercent}%`;
   }
 }

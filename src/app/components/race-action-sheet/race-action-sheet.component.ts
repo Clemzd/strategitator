@@ -1,7 +1,6 @@
-import {Component, ElementRef, Input, OnInit, Renderer2, ViewChild} from '@angular/core';
+import {Component, ElementRef, OnInit, Renderer2, ViewChild} from '@angular/core';
 import {ActionSheetController, AlertController, GestureController, GestureDetail} from "@ionic/angular";
-import {RaceService} from "@app/service/race.service";
-import {Race} from "@models/race.model";
+import {RaceManagerService} from "@app/service/race-manager.service";
 
 @Component({
   selector: 'app-race-action-sheet',
@@ -10,16 +9,13 @@ import {Race} from "@models/race.model";
 })
 export class RaceActionSheetComponent implements OnInit {
 
-  @Input()
-  public race!: Race;
-
   @ViewChild('barSheet', {static: true})
   private barSheet!: ElementRef<HTMLDivElement>;
 
   private startingExpandingHeight = 0;
 
 
-  constructor(private gestureCtrl: GestureController, private renderer: Renderer2, private alertController: AlertController, private actionSheetController: ActionSheetController, private raceService: RaceService) {
+  constructor(private gestureCtrl: GestureController, private renderer: Renderer2, private alertController: AlertController, private actionSheetController: ActionSheetController, public raceManagerService: RaceManagerService) {
   }
 
   ngOnInit(): void {
@@ -74,12 +70,13 @@ export class RaceActionSheetComponent implements OnInit {
         text: 'Changer les relais',
         icon: 'create-outline',
         handler: () => {
-          this.raceService.askEdit(this.race);
+          this.raceManagerService.askEdit(this.raceManagerService.race);
         }
       }, {
         text: 'Mettre en pause',
         icon: 'pause-circle-outline',
         handler: () => {
+          this.raceManagerService.pause();
           console.log('Play clicked');
         }
       }, {
@@ -122,7 +119,7 @@ export class RaceActionSheetComponent implements OnInit {
           text: 'Ok',
           id: 'confirm-button',
           handler: () => {
-            this.raceService.changeRelay(this.race);
+            this.raceManagerService.changeRelay();
           }
         }
       ]

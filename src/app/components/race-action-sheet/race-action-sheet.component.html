@@ -7,10 +7,16 @@
       </ion-button>
       <div class="vertical-bar"></div>
     </div>
-    <div class="message">Préparez vous au départ !</div>
+    <div *ngIf="!raceManagerService.ongoing" class="message">Préparez vous au départ !</div>
+    <div *ngIf="raceManagerService.ongoing" class="message">
+      {{ raceManagerService.remaningMinutesNextRelay | number : '2.0' }}
+      : {{raceManagerService.remaningSecondsNextRelay | number : '2.0' }}
+    </div>
+
     <div class="button-bar">
       <div class="vertical-bar"></div>
-      <ion-button (click)="changeRelay()" color="secondary-gradient" shape="default" size="square">
+      <ion-button (click)="changeRelay()" [disabled]="!raceManagerService.ongoing" color="secondary-gradient"
+                  shape="default" size="square">
         <ion-icon name="custom-swap" size="large" slot="icon-only"></ion-icon>
       </ion-button>
     </div>

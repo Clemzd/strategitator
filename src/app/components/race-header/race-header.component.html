@@ -1,19 +1,21 @@
 <ion-toolbar>
   <div class="header">
     <div class="time">
-      <div class="hours-minutes">{{ race.remaningHours | number:'2.0' }}:{{race.remaningMinutes | number:'2.0' }}</div>
-      <div class="seconds">:{{race.remaningSeconds | number:'2.0' }}</div>
+      <div class="hours-minutes">{{ raceManagerService.remaningHoursRace | number:'2.0-0' }}
+        :{{raceManagerService.remaningMinutesRace | number:'2.0-0' }}</div>
+      <div class="seconds">:{{raceManagerService.remaningSecondsRace | number:'2.0-0' }}</div>
     </div>
-    <ion-button (click)="presentAlertConfirm()" *ngIf="!race.ongoing" color="primary-tertiary-gradient" shape="round"
+    <ion-button (click)="presentAlertConfirm()" *ngIf="!raceManagerService.ongoing" color="primary-tertiary-gradient"
+                shape="round"
                 size="small">
       <ion-icon name="play" slot="start"></ion-icon>
       <span class="text-start-race">Lancer la course</span>
     </ion-button>
-    <ion-button (click)="goFaster()" *ngIf="race.ongoing" color="primary" shape="round" size="small">
+    <ion-button (click)="goFaster()" *ngIf="raceManagerService.ongoing" color="primary" shape="round" size="small">
       <ion-icon name="play-forward" size="large" slot="icon-only"></ion-icon>
     </ion-button>
   </div>
 </ion-toolbar>
 <div class="container-progress-bar">
-  <ion-progress-bar [value]="race.progressPercentage"></ion-progress-bar>
+  <ion-progress-bar [value]="raceManagerService.progressPercentage"></ion-progress-bar>
 </div>

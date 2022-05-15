@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {AlertController} from "@ionic/angular";
 import {Race} from "@models/race.model";
-import {RaceService} from "@app/service/race.service";
+import {RaceManagerService} from "@app/service/race-manager.service";
 
 @Component({
   selector: 'app-race-header',
@@ -13,7 +13,7 @@ export class RaceHeaderComponent implements OnInit {
   @Input()
   public race!: Race;
 
-  constructor(public alertController: AlertController, public raceService: RaceService) {
+  constructor(public alertController: AlertController, public raceManagerService: RaceManagerService) {
   }
 
   ngOnInit(): void {
@@ -22,9 +22,7 @@ export class RaceHeaderComponent implements OnInit {
   async presentAlertConfirm() {
     const alert = await this.alertController.create({
       mode: "ios",
-      cssClass: 'my-custom-class',
-      header: 'Confirmer',
-      message: 'Vous pouvez toujours annuler et repartir de zéro',
+      header: 'Démarrer la course ?',
       buttons: [
         {
           text: 'Annuler',
@@ -38,7 +36,7 @@ export class RaceHeaderComponent implements OnInit {
           text: 'Go !',
           id: 'confirm-button',
           handler: () => {
-            this.raceService.start(this.race);
+            this.raceManagerService.startOrResume(this.race);
           }
         }
       ]
@@ -48,7 +46,7 @@ export class RaceHeaderComponent implements OnInit {
   }
 
   public goFaster(): void {
-    this.raceService.goFaster();
+    this.raceManagerService.goFaster();
   }
 
 

@@ -1,7 +1,7 @@
-<ion-header class="ion-no-border">
+<ion-header *ngIf="race" class="ion-no-border">
   <app-race-header [race]="race"></app-race-header>
 </ion-header>
-<ion-content>
+<ion-content *ngIf="race">
   <div class="track-info">
     <h1>{{race.location}}</h1>
     <h3>{{race.lengthInHours}}H - {{ race.plannedDate | date:'mediumDate' }}</h3>
@@ -14,7 +14,7 @@
     <!-- Relays -->
     <div class="relays">
       <ion-reorder-group (ionItemReorder)="reorderItems($event)" disabled="false">
-        <div *ngFor="let relay of relays" class="item">
+        <div *ngFor="let relay of race.relays" class="item">
           <app-card-relay [pilots]="pilots" [relay]="relay"></app-card-relay>
         </div>
       </ion-reorder-group>
@@ -22,5 +22,5 @@
   </div>
 </ion-content>
 <ion-footer>
-  <app-race-action-sheet [race]="race"></app-race-action-sheet>
+  <app-race-action-sheet></app-race-action-sheet>
 </ion-footer>

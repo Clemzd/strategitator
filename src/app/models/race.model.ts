@@ -10,13 +10,7 @@ export class Race {
   relays: Relay[];
   pilots: Pilot[];
 
-  // Datas that are calculated during the race
   currentIndexRelay: number = -1;
-  ongoing: boolean = false;
-  remaningHours: number;
-  remaningMinutes: number;
-  remaningSeconds: number;
-  progressPercentage = 0;
 
   constructor(options: { location: string, lengthInHours: number, plannedDate: Date, relays: Relay[], pilots: Pilot[] }) {
     this.location = options.location;
@@ -24,13 +18,5 @@ export class Race {
     this.plannedDate = options.plannedDate;
     this.relays = options.relays;
     this.pilots = options.pilots;
-
-    this.remaningHours = this.lengthInHours;
-    this.remaningMinutes = 0;
-    this.remaningSeconds = 0;
-  }
-
-  get lengthInSeconds() {
-    return this.lengthInHours * 3600;
   }
 }
